@@ -7,6 +7,7 @@ export const useProductStore = defineStore({
     products: [],
     product: null,
     loading: false,
+    categories: [],
   }),
   actions: {
     async fetchProducts() {
@@ -31,6 +32,16 @@ export const useProductStore = defineStore({
         console.error('Error fetching product:', error);
       } finally {
         this.loading = false;
+      }
+    },
+    async fetchProductCategories() {
+      try {
+        const response = await fetch(`${BASE_URL}/products/categories`);
+        const data = await response.json();
+        this.categories = data;
+        return data;
+      } catch (error) {
+        console.error('Error fetching product categories:', error);
       }
     },
   },
