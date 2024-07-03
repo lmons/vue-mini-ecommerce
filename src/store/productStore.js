@@ -5,6 +5,7 @@ export const useProductStore = defineStore({
   id: 'productStore',
   state: () => ({
     products: [],
+    product: null,
     loading: false,
   }),
   actions: {
@@ -15,6 +16,19 @@ export const useProductStore = defineStore({
         this.products = data;
       } catch (error) {
         console.error('Error fetching products:', error);
+      } finally {
+        this.loading = false;
+      }
+    },
+    async fetchProductById(id) {
+      try {
+        this.loading = true;
+        const response = await fetch(`${BASE_URL}/products/${id}`);
+        console.log(response);
+        const data = await response.json();
+        this.product = data;
+      } catch (error) {
+        console.error('Error fetching product:', error);
       } finally {
         this.loading = false;
       }

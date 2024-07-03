@@ -17,7 +17,9 @@
               <h3 class="card-title">{{ product.title }}</h3>
               <p class="card-text">Price: ${{ product.price }}</p>
               <div class="mt-auto">
-                <a href="#" class="btn btn-primary me-2">View Details</a>
+                <router-link :to="{ name: 'ProductDetail', params: { id: product.id } }" class="btn btn-primary me-2">
+                    View Details
+                </router-link>
                 <button @click="addToCart(product)" class="btn btn-success">
                   Add to Cart
                 </button>
