@@ -2,9 +2,13 @@
   "name": "vue-ecommerce-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lmons.github.io/vue-ecommerce-app/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "clean": "gh-pages-clean",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -22,7 +26,8 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "gh-pages": "^6.1.1"
   },
   "eslintConfig": {
     "root": true,
