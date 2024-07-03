@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <NavBar />
-    <ProductList />
     <router-view />
   </div>
 </template>
@@ -9,13 +8,11 @@
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
 import NavBar from './components/NavBar.vue';
-import ProductList from './components/ProductList.vue';
 
 export default {
   name: 'App',
   components: {
     NavBar,
-    ProductList
   }
 }
 </script>
