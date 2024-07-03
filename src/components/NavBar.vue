@@ -11,7 +11,7 @@
             <router-link to="/" class="nav-link">Products</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/cart" class="nav-link">Cart</router-link>
+            <router-link to="/cart" class="nav-link">Cart <span class="badge bg-secondary">{{ cartItemCount }}</span></router-link>
           </li>
         </ul>
       </div>
@@ -20,7 +20,19 @@
 </template>
 
 <script>
+import { useCartStore } from '../store/cartStore';
+import { computed } from 'vue';
+
 export default {
+  name: 'NavBar',
+  setup() {
+    const cartStore = useCartStore();
+    const cartItemCount = computed(() => cartStore.cartItems.length);
+
+    return {
+      cartItemCount,
+    };
+  },
 };
 </script>
 
